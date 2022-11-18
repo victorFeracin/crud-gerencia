@@ -29,8 +29,8 @@ public class JDBCUtil {
     private static final File config_file = new File(path + "/src/properties/configuracaobd.properties");
     
     protected Connection connection = null;
-    protected PreparedStatement pstdados = null;
-    protected ResultSet rsdados = null;
+    protected PreparedStatement pstdata = null;
+    protected ResultSet rsdata = null;
     
 
     /**

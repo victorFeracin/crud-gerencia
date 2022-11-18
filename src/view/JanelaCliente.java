@@ -322,7 +322,7 @@ public class JanelaCliente extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         if (controle.CriaConexao()) {
-            if (controle.FindAll()) {
+            if (controle.findAll()) {
                 jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
             }
         }
@@ -338,9 +338,9 @@ public class JanelaCliente extends javax.swing.JFrame {
 
     private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
         try {
-            controle.registerCliente(jTextFieldRegName.getText(), jTextFieldRegEmail.getText(), jTextFieldRegPhone.getText());
+            controle.insert(jTextFieldRegName.getText(), jTextFieldRegEmail.getText(), jTextFieldRegPhone.getText());
             JOptionPane.showMessageDialog(this, "Customer successfully registered!", "Customer registered", JOptionPane.INFORMATION_MESSAGE);
-            controle.FindAll();
+            controle.findAll();
             jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
             
             jTextFieldRegName.setText("");
@@ -353,7 +353,7 @@ public class JanelaCliente extends javax.swing.JFrame {
 
     private void jButtonReadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonReadMouseClicked
         try {
-            controle.FindAll();
+            controle.findAll();
             jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
         }catch(Exception e) {
             JOptionPane.showMessageDialog(this, "Error. Could not read customers.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
