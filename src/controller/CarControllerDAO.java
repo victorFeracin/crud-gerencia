@@ -4,40 +4,40 @@
  */
 package controller;
 
-
+import static controller.JDBCUtil.getConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Cliente;
+import model.Car;
 
 /**
  *
- * @author vhsf0
+ * @author PICHAU
  */
-public class ClienteControllerDAO extends JDBCUtil {
-    private static final String sqlFindAllClientes = "SELECT * FROM Clientes order by cliente_id";
-    private static final String sqlFindOneCliente = "SELECT * FROM Clientes WHERE cliente_id = ?";
-    private static final String sqlGetNumberRows = "SELECT COUNT (*) FROM Clientes";
-    private static final String sqlInsert = "INSERT INTO Clientes (cliente_id, cliente_name, cliente_email, cliente_phone) VALUES (?, ?, ?, ?)";
-    private static final String sqlUpdate = "UPDATE Clientes SET cliente_name = ?, cliente_email = ?, cliente_phone = ? WHERE cliente_id = ?";
-    private static final String sqlDelete = "DELETE FROM Clientes WHERE cliente_id = ?";
+public class CarControllerDAO extends JDBCUtil {
+    private static final String sqlFindAllCars = "SELECT * FROM Cars order by car_id";
+    private static final String sqlFindOneCar = "SELECT * FROM Cars WHERE car_id = ?";
+    private static final String sqlGetNumberRows = "SELECT COUNT (*) FROM Cars";
+    private static final String sqlInsert = "INSERT INTO Cars (car_id, car_name, car_year, car_brand, car_price) VALUES (?, ?, ?, ?, ?)";
+    private static final String sqlUpdate = "UPDATE Cars SET car_name = ?, car_year = ?, car_brand = ?, car_price = ? WHERE car_id = ?";
+    private static final String sqlDelete = "DELETE FROM Cars WHERE car_id = ?";
 
-    protected StringBuilder sbClientes = new StringBuilder();
+    protected StringBuilder sbCars = new StringBuilder();
     
-    public ClienteControllerDAO() {
+    public CarControllerDAO() {
 
     }
     
-    public boolean insert(String name, String email, String phone) {
+    public boolean insert(String name, int year, String brand, Double price) {
         try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_UPDATABLE;
             int newId;
             
-            pstdata = connection.prepareStatement(sqlFindAllClientes, type, concurrency);
+            pstdata = connection.prepareStatement(sqlFindAllCars, type, concurrency);
             rsdata = pstdata.executeQuery();
             if(rsdata.next() != false) {
                 rsdata.last();
-                newId = getCliente().getIdCliente() + 1;
+                newId = getCar().getIdCar() + 1;
             } else {
                 
                 newId = 1;
@@ -46,8 +46,9 @@ public class ClienteControllerDAO extends JDBCUtil {
             pstdata = getConnection().prepareStatement(sqlInsert, type, concurrency);
             pstdata.setInt(1, newId);
             pstdata.setString(2, name);
-            pstdata.setString(3, email);
-            pstdata.setString(4, phone);
+            pstdata.setInt(3, year);
+            pstdata.setString(4, brand);
+            pstdata.setDouble(5, price);
             int answer = pstdata.executeUpdate();
             pstdata.close();
 
@@ -118,21 +119,21 @@ public class ClienteControllerDAO extends JDBCUtil {
         try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_READ_ONLY;
-            sbClientes.setLength(0);
+            sbCars.setLength(0);
             
             pstdata = connection.prepareStatement(sqlGetNumberRows, type, concurrency);
             rsdata = pstdata.executeQuery();
             rsdata.next();
             long numberRows = rsdata.getLong(1);
             
-            pstdata = connection.prepareStatement(sqlFindAllClientes, type, concurrency);
+            pstdata = connection.prepareStatement(sqlFindAllCars, type, concurrency);
             rsdata = pstdata.executeQuery();
             if(numberRows <= 0) {
-                sbClientes.append("List currently empty!");
+                sbCars.append("List currently empty!");
             }
             for(int i = 0; i < numberRows; i++) {
                 rsdata.next();
-                sbClientes
+                sbCars
                     .append("ID: ")
                     .append(getCliente().getIdCliente())
                     .append("\n")
@@ -157,14 +158,14 @@ public class ClienteControllerDAO extends JDBCUtil {
         try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_READ_ONLY;
-            sbClientes.setLength(0);
+            sbCars.setLength(0);
 
-            pstdata = connection.prepareStatement(sqlFindOneCliente, type, concurrency);
+            pstdata = connection.prepareStatement(sqlFindOneCar, type, concurrency);
             pstdata.setInt(1, id);
             rsdata = pstdata.executeQuery();
             
             rsdata.next();
-            sbClientes
+            sbCars
                     .append("ID: ")
                     .append(getCliente().getIdCliente())
                     .append("\n")
@@ -184,20 +185,21 @@ public class ClienteControllerDAO extends JDBCUtil {
         return false;
     }
 
-    public Cliente getCliente() {
-        Cliente cli = null;
+    public Car getCar() {
+        Car car = null;
         if (rsdata != null) {
             try {
-                int id = rsdata.getInt("cliente_id");
-                String name = rsdata.getString("cliente_name");
-                String email = rsdata.getString("cliente_email");
-                String phone = rsdata.getString("cliente_phone");
-                cli = new Cliente(id, name, email, phone);
+                int id = rsdata.getInt("car_id");
+                String name = rsdata.getString("car_name");
+                int year = rsdata.getInt("car_year");
+                String brand = rsdata.getString("car_brand");
+                Double price = rsdata.getDouble("car_price");
+                car = new Car(id, name, year, brand, price);
             } catch (SQLException err) {
                 System.out.println(err);
             }
         }
-        return cli;
+        return car;
     }
 
     //getters
@@ -205,12 +207,12 @@ public class ClienteControllerDAO extends JDBCUtil {
         return rsdata;
     }
 
-    public StringBuilder getSbClientes() {
-        return sbClientes;
+    public StringBuilder getSbCars() {
+        return sbCars;
     }
     
     //setters
-    public void setSbClientes(StringBuilder sbClientes) {
-        this.sbClientes = sbClientes;
+    public void setSbCars(StringBuilder sbCars) {
+        this.sbCars = sbCars;
     }
 }
