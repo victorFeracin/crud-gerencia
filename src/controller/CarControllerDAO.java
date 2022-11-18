@@ -39,7 +39,6 @@ public class CarControllerDAO extends JDBCUtil {
                 rsdata.last();
                 newId = getCar().getIdCar() + 1;
             } else {
-                
                 newId = 1;
             }
             
@@ -52,9 +51,11 @@ public class CarControllerDAO extends JDBCUtil {
             int answer = pstdata.executeUpdate();
             pstdata.close();
 
+            //DEBUG
+            System.out.println("Resposta da inserção = " + answer);
+            //FIM-DEBUG
             if (answer == 1) {
                 connection.commit();
-                
                 return true;
             } else {
                 connection.rollback();
@@ -66,15 +67,16 @@ public class CarControllerDAO extends JDBCUtil {
         return false;
     }
 
-    public boolean update(int id, String name, String email, String phone) {
+    public boolean update(int id, String name, int year, String brand, Double price) {
        try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_UPDATABLE;
             pstdata = connection.prepareStatement(sqlUpdate, type, concurrency);
             pstdata.setString(1, name);
-            pstdata.setString(2, email);
-            pstdata.setString(3, phone);
-            pstdata.setInt(4, id);
+            pstdata.setInt(2, year);
+            pstdata.setString(3, brand);
+            pstdata.setDouble(4, price);
+            pstdata.setInt(5, id);
             int answer = pstdata.executeUpdate();
             pstdata.close();
             
@@ -109,8 +111,8 @@ public class CarControllerDAO extends JDBCUtil {
                 connection.rollback();
                 return false;
             }
-        } catch (SQLException erro) {
-            System.out.println("Delete error = " + erro);
+        } catch (SQLException err) {
+            System.out.println("Delete error = " + err);
         }
         return false;
     }
@@ -135,16 +137,19 @@ public class CarControllerDAO extends JDBCUtil {
                 rsdata.next();
                 sbCars
                     .append("ID: ")
-                    .append(getCliente().getIdCliente())
+                    .append(getCar().getIdCar())
                     .append("\n")
                     .append("Name: ")
-                    .append(getCliente().getName())
+                    .append(getCar().getName())
                     .append("\n")
-                    .append("Email: ")
-                    .append(getCliente().getEmail())
+                    .append("Year: ")
+                    .append(getCar().getYear())
                     .append("\n")
-                    .append("Phone: ")
-                    .append(getCliente().getPhone())
+                    .append("Brand: ")
+                    .append(getCar().getBrand())
+                    .append("\n")
+                    .append("Price: ")
+                    .append(getCar().getPrice())
                     .append("\n\n");
             }
             return true;
@@ -167,16 +172,19 @@ public class CarControllerDAO extends JDBCUtil {
             rsdata.next();
             sbCars
                     .append("ID: ")
-                    .append(getCliente().getIdCliente())
+                    .append(getCar().getIdCar())
                     .append("\n")
                     .append("Name: ")
-                    .append(getCliente().getName())
+                    .append(getCar().getName())
                     .append("\n")
-                    .append("Email: ")
-                    .append(getCliente().getEmail())
+                    .append("Year: ")
+                    .append(getCar().getYear())
                     .append("\n")
-                    .append("Phone: ")
-                    .append(getCliente().getPhone())
+                    .append("Brand: ")
+                    .append(getCar().getBrand())
+                    .append("\n")
+                    .append("Price: ")
+                    .append(getCar().getPrice())
                     .append("\n\n");
             return true;
         } catch (SQLException err) {

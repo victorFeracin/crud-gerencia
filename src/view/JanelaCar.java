@@ -374,7 +374,7 @@ public class JanelaCar extends javax.swing.JFrame {
 
     private void jButtonReadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonReadMouseClicked
         try {
-            controle.readCar();
+            controle.findAll();
             jTextPaneCars.setText(String.valueOf(controle.getSbCars()));
         }catch(Exception e) {
             JOptionPane.showMessageDialog(this, "Error. Could not read cars.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
@@ -391,11 +391,12 @@ public class JanelaCar extends javax.swing.JFrame {
 
     private void jButtonIdDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdDeleteMouseClicked
         try {
-            if(controle.deleteCar(jTextFieldIdDelete.getText()) == true) {
+            if(controle.delete(Integer.valueOf(jTextFieldIdDelete.getText())) == true) {
                 JOptionPane.showMessageDialog(this, "Car with ID " + jTextFieldIdDelete.getText() + " successfully removed", "Car removed", JOptionPane.INFORMATION_MESSAGE);
-                controle.readCar();
+                controle.findAll();
                 jTextPaneCars.setText(String.valueOf(controle.getSbCars()));
                 
+                jTextFieldIdSearch.setText("");
                 jTextFieldIdDelete.setText("");
                 jTextFieldIdUpdate.setText("");
                 jTextFieldNameUpdate.setText("");
@@ -412,9 +413,9 @@ public class JanelaCar extends javax.swing.JFrame {
 
     private void jButtonUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUpdateMouseClicked
         try {
-            if(controle.updateCar(jTextFieldIdUpdate.getText(), jTextFieldNameUpdate.getText(), Integer.valueOf(jTextFieldYearUpdate.getText()), jTextFieldBrandUpdate.getText(), Double.valueOf(jTextFieldPriceUpdate.getText())) == true) {
+            if(controle.update(Integer.valueOf(jTextFieldIdUpdate.getText()), jTextFieldNameUpdate.getText(), Integer.valueOf(jTextFieldYearUpdate.getText()), jTextFieldBrandUpdate.getText(), Double.valueOf(jTextFieldPriceUpdate.getText())) == true) {
                 JOptionPane.showMessageDialog(this, "Car successfully updated!", "Car updated", JOptionPane.INFORMATION_MESSAGE);
-                controle.readCar();
+                controle.findAll();
                 jTextPaneCars.setText(String.valueOf(controle.getSbCars()));
                 
                 jTextFieldIdDelete.setText("");
@@ -433,9 +434,9 @@ public class JanelaCar extends javax.swing.JFrame {
 
     private void jButtonIdSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdSearchMouseClicked
         try {
-            int pos = controle.searchCar(jTextFieldIdSearch.getText());
-            Car car = controle.getCars().get(pos);
-            if (pos != -1) {
+            controle.findOne(Integer.valueOf(jTextFieldIdSearch.getText()));
+            Car car = controle.getCar();
+            if (car != null) {
                 jTextPaneCars.setText(String.valueOf(controle.getSbCars()));
             
                 jTextFieldIdDelete.setText(String.valueOf(car.getIdCar()));

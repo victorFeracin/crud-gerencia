@@ -39,7 +39,6 @@ public class ClienteControllerDAO extends JDBCUtil {
                 rsdata.last();
                 newId = getCliente().getIdCliente() + 1;
             } else {
-                
                 newId = 1;
             }
             
@@ -53,7 +52,6 @@ public class ClienteControllerDAO extends JDBCUtil {
 
             if (answer == 1) {
                 connection.commit();
-                
                 return true;
             } else {
                 connection.rollback();
@@ -108,8 +106,8 @@ public class ClienteControllerDAO extends JDBCUtil {
                 connection.rollback();
                 return false;
             }
-        } catch (SQLException erro) {
-            System.out.println("Delete error = " + erro);
+        } catch (SQLException err) {
+            System.out.println("Delete error = " + err);
         }
         return false;
     }
