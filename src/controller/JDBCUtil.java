@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +24,14 @@ public class JDBCUtil {
     private static String url;
     private static String username;
     private static String password;
+    
+    private static final String path = System.getProperty("user.dir");
+    private static final File config_file = new File(path + "/src/arquivos/configuracaobd.properties");
+    
+    protected Connection connection = null;
+    protected PreparedStatement pstdados = null;
+    protected ResultSet rsdados = null;
+    
 
     /**
      * Initializes the data source.
@@ -50,6 +59,45 @@ public class JDBCUtil {
         }
         if (driver != null) {
             Class.forName(driver);
+        }
+    }
+    
+    public boolean CriaConexao() {
+        try {
+            init(config_file);
+            connection = getConnection();
+            connection.setAutoCommit(false);//configuracao necessaria para confirmacao ou nao de alteracoes no banco de dados.
+
+            DatabaseMetaData dbmt = connection.getMetaData();
+            System.out.println("DB Name: " + dbmt.getDatabaseProductName());
+            System.out.println("DB Version: " + dbmt.getDatabaseProductVersion());
+            System.out.println("URL: " + dbmt.getURL());
+            System.out.println("Driver: " + dbmt.getDriverName());
+            System.out.println("Driver Version: " + dbmt.getDriverVersion());
+            System.out.println("User: " + dbmt.getUserName());
+
+            return true;
+        } catch (ClassNotFoundException erro) {
+            System.out.println("JDBC driver loading failed." + erro);
+        } catch (IOException erro) {
+            System.out.println("Configuration file loading failed." + erro);
+        } catch (SQLException erro) {
+            System.out.println("SQL command failed = " + erro);
+        }
+        return false;
+    }
+
+    public boolean FechaConexao() {
+        if (connection != null) {
+            try {
+                connection.close();
+                return true;
+            } catch (SQLException erro) {
+                System.err.println("Error trying to close the connection = " + erro);
+                return false;
+            }
+        } else {
+            return false;
         }
     }
 
