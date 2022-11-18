@@ -26,7 +26,7 @@ public class JDBCUtil {
     private static String password;
     
     private static final String path = System.getProperty("user.dir");
-    private static final File config_file = new File(path + "/src/arquivos/configuracaobd.properties");
+    private static final File config_file = new File(path + "/src/properties/configuracaobd.properties");
     
     protected Connection connection = null;
     protected PreparedStatement pstdados = null;
