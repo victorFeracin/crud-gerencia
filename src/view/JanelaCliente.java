@@ -161,6 +161,11 @@ public class JanelaCliente extends javax.swing.JFrame {
                 jButtonUpdateMouseClicked(evt);
             }
         });
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -370,11 +375,12 @@ public class JanelaCliente extends javax.swing.JFrame {
 
     private void jButtonIdDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdDeleteMouseClicked
         try {
-            if(controle.deleteCliente(jTextFieldIdDelete.getText()) == true) {
+            if(controle.delete(Integer.valueOf(jTextFieldIdDelete.getText())) == true) {
                 JOptionPane.showMessageDialog(this, "Customer with ID " + jTextFieldIdDelete.getText() + " successfully removed", "Customer removed", JOptionPane.INFORMATION_MESSAGE);
-                controle.readCliente();
+                controle.findAll();
                 jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
                 
+                jTextFieldIdSearch.setText("");
                 jTextFieldIdDelete.setText("");
                 jTextFieldIdUpdate.setText("");
                 jTextFieldNameUpdate.setText("");
@@ -390,9 +396,9 @@ public class JanelaCliente extends javax.swing.JFrame {
 
     private void jButtonUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUpdateMouseClicked
         try {
-            if(controle.updateCliente(jTextFieldIdUpdate.getText(), jTextFieldNameUpdate.getText(), jTextFieldEmailUpdate.getText(), jTextFieldPhoneUpdate.getText()) == true) {
+            if(controle.update(Integer.valueOf(jTextFieldIdUpdate.getText()), jTextFieldNameUpdate.getText(), jTextFieldEmailUpdate.getText(), jTextFieldPhoneUpdate.getText()) == true) {
                 JOptionPane.showMessageDialog(this, "Customer successfully updated!", "Customer updated", JOptionPane.INFORMATION_MESSAGE);
-                controle.readCliente();
+                controle.findAll();
                 jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
                 
                 jTextFieldIdDelete.setText("");
@@ -410,9 +416,9 @@ public class JanelaCliente extends javax.swing.JFrame {
 
     private void jButtonIdSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdSearchMouseClicked
         try {
-            int pos = controle.searchCliente(jTextFieldIdSearch.getText());
-            Cliente cliente = controle.getClientes().get(pos);
-            if (pos != -1) {
+            controle.findOne(Integer.valueOf(jTextFieldIdSearch.getText()));
+            Cliente cliente = controle.getCliente();
+            if (cliente != null) {
                 jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
             
                 jTextFieldIdDelete.setText(String.valueOf(cliente.getIdCliente()));
@@ -427,6 +433,10 @@ public class JanelaCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error. Could not search this customer.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonIdSearchMouseClicked
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     /**
      * @param args the command line arguments

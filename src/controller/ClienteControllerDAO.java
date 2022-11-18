@@ -67,20 +67,18 @@ public class ClienteControllerDAO extends JDBCUtil {
         return false;
     }
 
-    public boolean update(Cliente cli) {
+    public boolean update(int id, String name, String email, String phone) {
        try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_UPDATABLE;
             pstdata = connection.prepareStatement(sqlUpdate, type, concurrency);
-            pstdata.setString(1, cli.getName());
-            pstdata.setString(2, cli.getEmail());
-            pstdata.setString(3, cli.getPhone());
-            pstdata.setInt(4, cli.getIdCliente());
+            pstdata.setString(1, name);
+            pstdata.setString(2, email);
+            pstdata.setString(3, phone);
+            pstdata.setInt(4, id);
             int answer = pstdata.executeUpdate();
             pstdata.close();
-            //DEBUG
-            System.out.println("Update answer = " + answer);
-            //FIM-DEBUG
+            
             if (answer == 1) {
                 connection.commit();
                 return true;
@@ -94,18 +92,18 @@ public class ClienteControllerDAO extends JDBCUtil {
         return false;
     }
 
-    public boolean delete(Cliente cli) {
+    public boolean delete(int id) {
         try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_UPDATABLE;
             pstdata = connection.prepareStatement(sqlDelete, type, concurrency);
-            pstdata.setInt(1, cli.getIdCliente());
-            int resposta = pstdata.executeUpdate();
+            pstdata.setInt(1, id);
+            int answer = pstdata.executeUpdate();
             pstdata.close();
             //DEBUG
-            System.out.println("Delete answer = " + resposta);
+            System.out.println("Delete answer = " + answer);
             //FIM-DEBUG
-            if (resposta == 1) {
+            if (answer == 1) {
                 connection.commit();
                 return true;
             } else {
@@ -151,8 +149,39 @@ public class ClienteControllerDAO extends JDBCUtil {
                     .append("\n\n");
             }
             return true;
-        } catch (SQLException erro) {
-            System.out.println("Reading error = " + erro);
+        } catch (SQLException err) {
+            System.out.println("Reading error = " + err);
+        }
+        return false;
+    }
+    
+    public boolean findOne(int id) {
+        try {
+            int type = ResultSet.TYPE_SCROLL_SENSITIVE;
+            int concurrency = ResultSet.CONCUR_READ_ONLY;
+            sbClientes.setLength(0);
+
+            pstdata = connection.prepareStatement(sqlFindOneCliente, type, concurrency);
+            pstdata.setInt(1, id);
+            rsdata = pstdata.executeQuery();
+            
+            rsdata.next();
+            sbClientes
+                    .append("ID: ")
+                    .append(getCliente().getIdCliente())
+                    .append("\n")
+                    .append("Name: ")
+                    .append(getCliente().getName())
+                    .append("\n")
+                    .append("Email: ")
+                    .append(getCliente().getEmail())
+                    .append("\n")
+                    .append("Phone: ")
+                    .append(getCliente().getPhone())
+                    .append("\n\n");
+            return true;
+        } catch (SQLException err) {
+            System.out.println("Reading error = " + err);
         }
         return false;
     }
