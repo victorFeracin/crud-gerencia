@@ -96,9 +96,6 @@ public class BrandControllerDAO extends JDBCUtil {
             pstdata.setInt(1, id);
             int answer = pstdata.executeUpdate();
             pstdata.close();
-            //DEBUG
-            System.out.println("Delete answer = " + answer);
-            //FIM-DEBUG
             if (answer == 1) {
                 connection.commit();
                 return true;
