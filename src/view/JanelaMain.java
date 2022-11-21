@@ -10,7 +10,7 @@ package view;
  */
 public class JanelaMain extends javax.swing.JFrame {
     JanelaCliente jcliente = new JanelaCliente();
-//    JanelaBrand jbrand = new JanelaBrand();
+    JanelaBrand jbrand = new JanelaBrand();
     JanelaCar jcar = new JanelaCar();
     /**
      * Creates new form JanelaPrincipal
@@ -134,7 +134,7 @@ public class JanelaMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClientesMouseClicked
 
     private void jButtonBrandsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBrandsMouseClicked
-//        jbrand.setVisible(true);
+        jbrand.setVisible(true);
     }//GEN-LAST:event_jButtonBrandsMouseClicked
 
     private void jButtonCarsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCarsMouseClicked

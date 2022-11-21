@@ -7,37 +7,37 @@ package controller;
 import static controller.JDBCUtil.getConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Car;
+import model.Brand;
 
 /**
  *
  * @author vhsf0
  */
-public class CarControllerDAO extends JDBCUtil {
-    private static final String sqlFindAllCars = "SELECT * FROM Cars order by car_id";
-    private static final String sqlFindOneCar = "SELECT * FROM Cars WHERE car_id = ?";
-    private static final String sqlGetNumberRows = "SELECT COUNT (*) FROM Cars";
-    private static final String sqlInsert = "INSERT INTO Cars (car_id, car_name, car_year, car_brand, car_price) VALUES (?, ?, ?, ?, ?)";
-    private static final String sqlUpdate = "UPDATE Cars SET car_name = ?, car_year = ?, car_brand = ?, car_price = ? WHERE car_id = ?";
-    private static final String sqlDelete = "DELETE FROM Cars WHERE car_id = ?";
+public class BrandControllerDAO extends JDBCUtil {
+    private static final String sqlFindAllBrands = "SELECT * FROM Brands order by brand_id";
+    private static final String sqlFindOneBrand = "SELECT * FROM Brands WHERE brand_id = ?";
+    private static final String sqlGetNumberRows = "SELECT COUNT (*) FROM Brands";
+    private static final String sqlInsert = "INSERT INTO Brands (brand_id, brand_name, brand_year_created, brand_website) VALUES (?, ?, ?, ?)";
+    private static final String sqlUpdate = "UPDATE Brands SET brand_name = ?, brand_year_created = ?, brand_website = ? WHERE brand_id = ?";
+    private static final String sqlDelete = "DELETE FROM Brands WHERE brand_id = ?";
 
-    protected StringBuilder sbCars = new StringBuilder();
+    protected StringBuilder sbBrands = new StringBuilder();
     
-    public CarControllerDAO() {
+    public BrandControllerDAO() {
 
     }
     
-    public boolean insert(String name, int year, String brand, Double price) {
+    public boolean insert(String name, int yearCreated, String website) {
         try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_UPDATABLE;
             int newId;
             
-            pstdata = connection.prepareStatement(sqlFindAllCars, type, concurrency);
+            pstdata = connection.prepareStatement(sqlFindAllBrands, type, concurrency);
             rsdata = pstdata.executeQuery();
             if(rsdata.next() != false) {
                 rsdata.last();
-                newId = getCar().getIdCar() + 1;
+                newId = getBrand().getIdBrand() + 1;
             } else {
                 newId = 1;
             }
@@ -45,9 +45,8 @@ public class CarControllerDAO extends JDBCUtil {
             pstdata = getConnection().prepareStatement(sqlInsert, type, concurrency);
             pstdata.setInt(1, newId);
             pstdata.setString(2, name);
-            pstdata.setInt(3, year);
-            pstdata.setString(4, brand);
-            pstdata.setDouble(5, price);
+            pstdata.setInt(3, yearCreated);
+            pstdata.setString(4, website);
             int answer = pstdata.executeUpdate();
             pstdata.close();
 
@@ -64,16 +63,15 @@ public class CarControllerDAO extends JDBCUtil {
         return false;
     }
 
-    public boolean update(int id, String name, int year, String brand, Double price) {
+    public boolean update(int id, String name, int yearCreated, String website) {
        try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_UPDATABLE;
             pstdata = connection.prepareStatement(sqlUpdate, type, concurrency);
             pstdata.setString(1, name);
-            pstdata.setInt(2, year);
-            pstdata.setString(3, brand);
-            pstdata.setDouble(4, price);
-            pstdata.setInt(5, id);
+            pstdata.setInt(2, yearCreated);
+            pstdata.setString(3, website);
+            pstdata.setInt(4, id);
             int answer = pstdata.executeUpdate();
             pstdata.close();
             
@@ -118,35 +116,32 @@ public class CarControllerDAO extends JDBCUtil {
         try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_READ_ONLY;
-            sbCars.setLength(0);
+            sbBrands.setLength(0);
             
             pstdata = connection.prepareStatement(sqlGetNumberRows, type, concurrency);
             rsdata = pstdata.executeQuery();
             rsdata.next();
             long numberRows = rsdata.getLong(1);
             
-            pstdata = connection.prepareStatement(sqlFindAllCars, type, concurrency);
+            pstdata = connection.prepareStatement(sqlFindAllBrands, type, concurrency);
             rsdata = pstdata.executeQuery();
             if(numberRows <= 0) {
-                sbCars.append("List currently empty!");
+                sbBrands.append("List currently empty!");
             }
             for(int i = 0; i < numberRows; i++) {
                 rsdata.next();
-                sbCars
+                sbBrands
                     .append("ID: ")
-                    .append(getCar().getIdCar())
+                    .append(getBrand().getIdBrand())
                     .append("\n")
                     .append("Name: ")
-                    .append(getCar().getName())
+                    .append(getBrand().getName())
                     .append("\n")
-                    .append("Year: ")
-                    .append(getCar().getYear())
+                    .append("Year of Creation: ")
+                    .append(getBrand().getYearCreated())
                     .append("\n")
-                    .append("Brand: ")
-                    .append(getCar().getBrand())
-                    .append("\n")
-                    .append("Price: ")
-                    .append(getCar().getPrice())
+                    .append("Website: ")
+                    .append(getBrand().getWebsite())
                     .append("\n\n");
             }
             return true;
@@ -160,28 +155,25 @@ public class CarControllerDAO extends JDBCUtil {
         try {
             int type = ResultSet.TYPE_SCROLL_SENSITIVE;
             int concurrency = ResultSet.CONCUR_READ_ONLY;
-            sbCars.setLength(0);
+            sbBrands.setLength(0);
 
-            pstdata = connection.prepareStatement(sqlFindOneCar, type, concurrency);
+            pstdata = connection.prepareStatement(sqlFindOneBrand, type, concurrency);
             pstdata.setInt(1, id);
             rsdata = pstdata.executeQuery();
             
             rsdata.next();
-            sbCars
+            sbBrands
                     .append("ID: ")
-                    .append(getCar().getIdCar())
+                    .append(getBrand().getIdBrand())
                     .append("\n")
                     .append("Name: ")
-                    .append(getCar().getName())
+                    .append(getBrand().getName())
                     .append("\n")
-                    .append("Year: ")
-                    .append(getCar().getYear())
+                    .append("Year of Creation: ")
+                    .append(getBrand().getYearCreated())
                     .append("\n")
-                    .append("Brand: ")
-                    .append(getCar().getBrand())
-                    .append("\n")
-                    .append("Price: ")
-                    .append(getCar().getPrice())
+                    .append("Website: ")
+                    .append(getBrand().getWebsite())
                     .append("\n\n");
             return true;
         } catch (SQLException err) {
@@ -190,21 +182,20 @@ public class CarControllerDAO extends JDBCUtil {
         return false;
     }
 
-    public Car getCar() {
-        Car car = null;
+    public Brand getBrand() {
+        Brand brand = null;
         if (rsdata != null) {
             try {
-                int id = rsdata.getInt("car_id");
-                String name = rsdata.getString("car_name");
-                int year = rsdata.getInt("car_year");
-                String brand = rsdata.getString("car_brand");
-                Double price = rsdata.getDouble("car_price");
-                car = new Car(id, name, year, brand, price);
+                int id = rsdata.getInt("brand_id");
+                String name = rsdata.getString("brand_name");
+                int year = rsdata.getInt("brand_year_created");
+                String website = rsdata.getString("brand_website");
+                brand = new Brand(id, name, year, website);
             } catch (SQLException err) {
                 System.out.println(err);
             }
         }
-        return car;
+        return brand;
     }
 
     //getters
@@ -212,12 +203,12 @@ public class CarControllerDAO extends JDBCUtil {
         return rsdata;
     }
 
-    public StringBuilder getSbCars() {
-        return sbCars;
+    public StringBuilder getSbBrands() {
+        return sbBrands;
     }
     
     //setters
-    public void setSbCars(StringBuilder sbCars) {
-        this.sbCars = sbCars;
+    public void setSbBrands (StringBuilder sbBrands) {
+        this.sbBrands = sbBrands;
     }
 }
