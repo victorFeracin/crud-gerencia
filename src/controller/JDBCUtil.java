@@ -52,10 +52,12 @@ public class JDBCUtil {
         if (username == null) {
             username = "";
         }
+        
         password = props.getProperty("jdbc.password");
         if (password == null) {
             password = "";
         }
+        
         if (driver != null) {
             Class.forName(driver);
         }
