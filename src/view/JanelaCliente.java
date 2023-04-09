@@ -78,7 +78,8 @@ public class JanelaCliente extends javax.swing.JFrame {
         jTextPaneCustomers.setEditable(false);
         jScrollPane2.setViewportView(jTextPaneCustomers);
 
-        jButtonRead.setText("Read all Customers");
+        jButtonRead.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/list.png"))); // NOI18N
+        jButtonRead.setToolTipText("Read all Customers");
         jButtonRead.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonReadMouseClicked(evt);
@@ -99,7 +100,8 @@ public class JanelaCliente extends javax.swing.JFrame {
 
         jLabel4.setText("Phone:");
 
-        jButtonRegister.setText("Register");
+        jButtonRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
+        jButtonRegister.setToolTipText("Register");
         jButtonRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonRegisterMouseClicked(evt);
@@ -120,7 +122,8 @@ public class JanelaCliente extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("OR");
 
-        jButtonIdSearch.setText("Search a Customer ");
+        jButtonIdSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        jButtonIdSearch.setToolTipText("Search a Customer");
         jButtonIdSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonIdSearchMouseClicked(evt);
@@ -137,7 +140,8 @@ public class JanelaCliente extends javax.swing.JFrame {
 
         jLabel9.setText("Customer ID:");
 
-        jButtonIdDelete.setText("Delete a Customer");
+        jButtonIdDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete.png"))); // NOI18N
+        jButtonIdDelete.setToolTipText("Delete a Customer");
         jButtonIdDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonIdDeleteMouseClicked(evt);
@@ -155,7 +159,8 @@ public class JanelaCliente extends javax.swing.JFrame {
 
         jLabel14.setText("Phone:");
 
-        jButtonUpdate.setText("Update");
+        jButtonUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
+        jButtonUpdate.setToolTipText("Update");
         jButtonUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonUpdateMouseClicked(evt);
@@ -173,48 +178,55 @@ public class JanelaCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldRegPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonRegister)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jTextFieldIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(9, 9, 9)
-                            .addComponent(jButtonIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonRead, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator2)
-                        .addComponent(jSeparator1)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator3)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                .addComponent(jTextFieldIdDelete, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButtonIdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator4)
-                        .addComponent(jTextFieldRegEmail)
-                        .addComponent(jTextFieldRegName))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldIdUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNameUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldEmailUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldPhoneUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUpdate))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldPhoneUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(112, 112, 112)
+                            .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextFieldIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonRead, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator1)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator3)
+                            .addComponent(jSeparator4)
+                            .addComponent(jTextFieldRegEmail)
+                            .addComponent(jTextFieldRegName)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldRegPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldIdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonIdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jTextFieldNameUpdate)
+                    .addComponent(jTextFieldEmailUpdate)
+                    .addComponent(jTextFieldIdUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(517, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -228,11 +240,12 @@ public class JanelaCliente extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRead)
-                    .addComponent(jLabel7)
-                    .addComponent(jButtonIdSearch))
-                .addGap(18, 18, 18)
+                    .addComponent(jButtonIdSearch)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(8, 8, 8))
+                    .addComponent(jTextFieldIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
@@ -246,23 +259,29 @@ public class JanelaCliente extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldRegEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldRegPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldRegPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonRegister)
-                .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldIdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonIdDelete))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldIdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jButtonIdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,16 +294,17 @@ public class JanelaCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNameUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldEmailUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldPhoneUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonUpdate)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldEmailUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPhoneUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonUpdate))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -315,11 +335,13 @@ public class JanelaCliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1087, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1011, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -337,62 +359,9 @@ public class JanelaCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonReadActionPerformed
-
-    private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
-        try {
-            controle.insert(jTextFieldRegName.getText(), jTextFieldRegEmail.getText(), jTextFieldRegPhone.getText());
-            JOptionPane.showMessageDialog(this, "Customer successfully registered!", "Customer registered", JOptionPane.INFORMATION_MESSAGE);
-            controle.findAll();
-            jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
-            
-            jTextFieldRegName.setText("");
-            jTextFieldRegEmail.setText("");
-            jTextFieldRegPhone.setText("");
-        }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Customer not registered.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButtonRegisterMouseClicked
-
-    private void jButtonReadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonReadMouseClicked
-        try {
-            controle.findAll();
-            jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
-        }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not read customers.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButtonReadMouseClicked
-
-    private void jTextFieldIdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdSearchActionPerformed
-
-    private void jButtonIdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIdSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIdSearchActionPerformed
-
-    private void jButtonIdDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdDeleteMouseClicked
-        try {
-            if(controle.delete(Integer.valueOf(jTextFieldIdDelete.getText())) == true) {
-                JOptionPane.showMessageDialog(this, "Customer with ID " + jTextFieldIdDelete.getText() + " successfully removed", "Customer removed", JOptionPane.INFORMATION_MESSAGE);
-                controle.findAll();
-                jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
-                
-                jTextFieldIdSearch.setText("");
-                jTextFieldIdDelete.setText("");
-                jTextFieldIdUpdate.setText("");
-                jTextFieldNameUpdate.setText("");
-                jTextFieldEmailUpdate.setText("");
-                jTextFieldPhoneUpdate.setText("");
-            } else {
-                JOptionPane.showMessageDialog(this, "Error. Customer not found.", "Error: ", JOptionPane.ERROR_MESSAGE);
-            }   
-        }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Something went wrong.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButtonIdDeleteMouseClicked
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUpdateMouseClicked
         try {
@@ -400,7 +369,7 @@ public class JanelaCliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Customer successfully updated!", "Customer updated", JOptionPane.INFORMATION_MESSAGE);
                 controle.findAll();
                 jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
-                
+
                 jTextFieldIdDelete.setText("");
                 jTextFieldIdUpdate.setText("");
                 jTextFieldNameUpdate.setText("");
@@ -414,13 +383,38 @@ public class JanelaCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonUpdateMouseClicked
 
+    private void jButtonIdDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdDeleteMouseClicked
+        try {
+            if(controle.delete(Integer.valueOf(jTextFieldIdDelete.getText())) == true) {
+                JOptionPane.showMessageDialog(this, "Customer with ID " + jTextFieldIdDelete.getText() + " successfully removed", "Customer removed", JOptionPane.INFORMATION_MESSAGE);
+                controle.findAll();
+                jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
+
+                jTextFieldIdSearch.setText("");
+                jTextFieldIdDelete.setText("");
+                jTextFieldIdUpdate.setText("");
+                jTextFieldNameUpdate.setText("");
+                jTextFieldEmailUpdate.setText("");
+                jTextFieldPhoneUpdate.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error. Customer not found.", "Error: ", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Error. Something went wrong.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonIdDeleteMouseClicked
+
+    private void jButtonIdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIdSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonIdSearchActionPerformed
+
     private void jButtonIdSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdSearchMouseClicked
         try {
             controle.findOne(Integer.valueOf(jTextFieldIdSearch.getText()));
             Cliente cliente = controle.getCliente();
             if (cliente != null) {
                 jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
-            
+
                 jTextFieldIdDelete.setText(String.valueOf(cliente.getIdCliente()));
                 jTextFieldIdUpdate.setText(String.valueOf(cliente.getIdCliente()));
                 jTextFieldNameUpdate.setText(String.valueOf(cliente.getName()));
@@ -428,15 +422,43 @@ public class JanelaCliente extends javax.swing.JFrame {
                 jTextFieldPhoneUpdate.setText(String.valueOf(cliente.getPhone()));
             } else {
                 JOptionPane.showMessageDialog(this, "Error. Customer not found.", "Error: ", JOptionPane.ERROR_MESSAGE);
-            }    
+            }
         }catch(Exception e) {
             JOptionPane.showMessageDialog(this, "Error. Could not search this customer.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonIdSearchMouseClicked
 
-    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+    private void jTextFieldIdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonUpdateActionPerformed
+    }//GEN-LAST:event_jTextFieldIdSearchActionPerformed
+
+    private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
+        try {
+            controle.insert(jTextFieldRegName.getText(), jTextFieldRegEmail.getText(), jTextFieldRegPhone.getText());
+            JOptionPane.showMessageDialog(this, "Customer successfully registered!", "Customer registered", JOptionPane.INFORMATION_MESSAGE);
+            controle.findAll();
+            jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
+
+            jTextFieldRegName.setText("");
+            jTextFieldRegEmail.setText("");
+            jTextFieldRegPhone.setText("");
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Error. Customer not registered.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonRegisterMouseClicked
+
+    private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonReadActionPerformed
+
+    private void jButtonReadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonReadMouseClicked
+        try {
+            controle.findAll();
+            jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Error. Could not read customers.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonReadMouseClicked
 
     /**
      * @param args the command line arguments
