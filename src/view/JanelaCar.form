@@ -76,7 +76,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel5" min="-2" pref="87" max="-2" attributes="0"/>
                               <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" pref="78" max="-2" attributes="0"/>
@@ -119,6 +118,7 @@
                               <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                               <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                               <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel15" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="jTextFieldRegPrice" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
@@ -275,6 +275,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/car.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cars"/>
               </Properties>
