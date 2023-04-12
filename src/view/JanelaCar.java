@@ -369,7 +369,7 @@ public class JanelaCar extends javax.swing.JFrame {
             jTextFieldRegBrand.setText("");
             jTextFieldRegPrice.setText("");
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Car not registered.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Car not registered.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonRegisterMouseClicked
 
@@ -378,7 +378,7 @@ public class JanelaCar extends javax.swing.JFrame {
             controle.findAll();
             jTextPaneCars.setText(String.valueOf(controle.getSbCars()));
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not read cars.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not read cars.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonReadMouseClicked
 
@@ -429,7 +429,7 @@ public class JanelaCar extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. Car not found.", "Car not found: ", JOptionPane.ERROR_MESSAGE);
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not update car.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not update car.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonUpdateMouseClicked
 

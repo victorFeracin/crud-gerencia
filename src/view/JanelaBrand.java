@@ -347,7 +347,7 @@ public class JanelaBrand extends javax.swing.JFrame {
             jTextFieldRegYear.setText("");
             jTextFieldRegWebsite.setText("");
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Brand not registered.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Brand not registered.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonRegisterMouseClicked
 
@@ -356,7 +356,7 @@ public class JanelaBrand extends javax.swing.JFrame {
             controle.findAll();
             jTextPaneBrands.setText(String.valueOf(controle.getSbBrands()));
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not read brands.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not read brands.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonReadMouseClicked
 
@@ -385,7 +385,7 @@ public class JanelaBrand extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. Brand not found.", "Error: ", JOptionPane.ERROR_MESSAGE);
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Something went wrong.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Something went wrong.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonIdDeleteMouseClicked
 
@@ -405,7 +405,7 @@ public class JanelaBrand extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. Brand not found.", "Brand not found: ", JOptionPane.ERROR_MESSAGE);
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not update brand.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not update brand.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonUpdateMouseClicked
 
@@ -425,7 +425,7 @@ public class JanelaBrand extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. Brand not found.", "Error: ", JOptionPane.ERROR_MESSAGE);
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not search this brand.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not search this brand.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonIdSearchMouseClicked
 

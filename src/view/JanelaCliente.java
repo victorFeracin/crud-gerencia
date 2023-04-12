@@ -380,7 +380,7 @@ public class JanelaCliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. Customer not found.", "Customer not found: ", JOptionPane.ERROR_MESSAGE);
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not update customer.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not update customer.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonUpdateMouseClicked
 
@@ -401,7 +401,7 @@ public class JanelaCliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. Customer not found.", "Error: ", JOptionPane.ERROR_MESSAGE);
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Something went wrong.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Something went wrong.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonIdDeleteMouseClicked
 
@@ -425,7 +425,7 @@ public class JanelaCliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. Customer not found.", "Error: ", JOptionPane.ERROR_MESSAGE);
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not search this customer.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not search this customer.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonIdSearchMouseClicked
 
@@ -444,7 +444,7 @@ public class JanelaCliente extends javax.swing.JFrame {
             jTextFieldRegEmail.setText("");
             jTextFieldRegPhone.setText("");
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Customer not registered.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Customer not registered.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonRegisterMouseClicked
 
@@ -457,7 +457,7 @@ public class JanelaCliente extends javax.swing.JFrame {
             controle.findAll();
             jTextPaneCustomers.setText(String.valueOf(controle.getSbClientes()));
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Error. Could not read customers.", "Error: "+e, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error. Could not read customers.", "Error: ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonReadMouseClicked
 

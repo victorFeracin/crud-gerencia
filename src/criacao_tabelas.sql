@@ -11,7 +11,7 @@ create table Clientes(
 create table Brands(
 	"brand_id" integer not null,
 	"brand_name" varchar (255),
-	"brand_yearCreated" integer,
+	"brand_year_created" integer,
 	"brand_website" varchar (255),
 	constraint "brands_pk" primary key ("brand_id")
 );
