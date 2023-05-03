@@ -6,7 +6,7 @@
 <ul>
   <li>Git</li>
   <li>Java 18</li>
-  <li>Apache Netbeans IDE 8</li>
+  <li>Apache Netbeans IDE 13</li>
   <li>PostgreSQL</li>
   <li>pgAdmin 4</li>
 </ul>
