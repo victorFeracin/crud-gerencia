@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/view/JanelaBrand.java</file>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/view/JanelaCar.java</file>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/controller/BrandControllerDAO.java</file>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/view/JanelaCliente.java</file>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/controller/JDBCUtil.java</file>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/criacao_tabelas.sql</file>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/view/JanelaMain.java</file>
-            <file>file:/C:/Users/migue/OneDrive/Área%20de%20Trabalho/Estudos/UTF%20MP/6%20-%20Periodo/Gerencia%20da%20Configuracao/crud-gerencia/src/model/Brand.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
